@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+{% block content %}
+  <h2>Portfolio Detail</h2>
+  <p>Work Experience: {{ portfolio.work_experience }}</p>
+  <p>Education: {{ portfolio.education }}</p>
+  <p>Certifications: {{ portfolio.certifications }}</p>
+  <h3>Projects</h3>
+  <ul>
+    {% for project in portfolio.projects.all %}
+      <li>
+        <h4>{{ project.title }}</h4>
+        <p>{{ project.description }}</p>
+        {% if project.image %}
+          <img src="{{ project.image.url }}" alt="{{ project.title }}">
+        {% endif %}
+        {% if project.link %}
+          <a href="{{ project.link }}">More info</a>
+        {% endif %}
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'add_project' %}">Add Project</a>
+{% endblock %}
