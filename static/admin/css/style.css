@@ -1,0 +1,23 @@
+body {
+    padding-top: 20px;
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+.form-group label {
+    font-weight: bold;
+}
+
+.table {
+    margin-top: 20px;
+}
+
+button {
+    margin-right: 5px;
+}
