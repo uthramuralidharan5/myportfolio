@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Portfolio</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">Team Portfolio</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container py-5">
+        <div class="row">
+            <!-- Team Members Section -->
+            <div class="col-lg-8">
+                <h2 class="mb-4">Our Team</h2>
+                <div id="team-members" class="row">
+                    <!-- Member profiles will be dynamically added here -->
+                </div>
+            </div>
+
+            <!-- Form Section -->
+            <div class="col-lg-4">
+                <h2 class="mb-4">Add Your Profile</h2>
+                <form id="add-profile-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <input type="text" class="form-control" id="role" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="bio">Bio</label>
+                        <textarea class="form-control" id="bio" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="image">Profile Image URL</label>
+                        <input type="text" class="form-control" id="image" placeholder="Optional">
+                    </div>
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn Profile URL</label>
+                        <input type="text" class="form-control" id="linkedin" placeholder="Optional">
+                    </div>
+                    <div class="form-group">
+                        <label for="twitter">Twitter Profile URL</label>
+                        <input type="text" class="form-control" id="twitter" placeholder="Optional">
+                    </div>
+                    <input type="hidden" id="added-by" value="">
+                    <button type="submit" class="btn btn-primary">Add Profile</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Contributors Section -->
+        <div class="row mt-5">
+            <div class="col-lg-12">
+                <h2 class="mb-4">Contributors List</h2>
+                <table id="contributors-table" class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Bio</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contributors-body">
+                        <!-- Contributors will be dynamically added here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white text-center py-3">
+        <div class="container">
+            <p>&copy; 2024 Team Portfolio</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS and Custom Script -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>
