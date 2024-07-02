@@ -1,28 +1,35 @@
-from django.shortcuts import render, redirect
-from django.contrib.auth.decorators import login_required
-from .forms import UserProfileForm
-from .models import UserProfile
+from django.shortcuts import render, redirect, get_object_or_404
+from .models import Profile
+from .forms import ProfileForm
 
+def profile_list(request):
+    profiles = Profile.objects.all()
+    return render(request, 'profile_list.html', {'profiles': profiles})
 
-@login_required
-@login_required
-def profile_detail(request):
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
-    return render(request, 'profiles/profile_detail.html', {'user_profile': user_profile})
-
-@login_required
-def edit_profile(request):
-    user_profile, created = UserProfile.objects.get_or_create(user=request.user)
+def add_profile(request):
     if request.method == 'POST':
-        form = UserProfileForm(request.POST, instance=user_profile)
+        form = ProfileForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('profile_detail')
+            return redirect('profile_list')
     else:
-        form = UserProfileForm(instance=user_profile)
-    return render(request, 'profiles/edit_profile.html', {'form': form})
+        form = ProfileForm()
+    return render(request, 'profile_form.html', {'form': form})
 
-@login_required
-def profile_detail(request):
-    user_profile = UserProfile.objects.get(user=request.user)
-    return render(request, 'profiles/profile_detail.html', {'user_profile': user_profile})
+def edit_profile(request, pk):
+    profile = get_object_or_404(Profile, pk=pk)
+    if request.method == 'POST':
+        form = ProfileForm(request.POST, instance=profile)
+        if form.is_valid():
+            form.save()
+            return redirect('profile_list')
+    else:
+        form = ProfileForm(instance=profile)
+    return render(request, 'profile_form.html', {'form': form})
+
+def delete_profile(request, pk):
+    profile = get_object_or_404(Profile, pk=pk)
+    if request.method == 'POST':
+        profile.delete()
+        return redirect('profile_list')
+    return render(request, 'profile_confirm_delete.html', {'profile': profile})

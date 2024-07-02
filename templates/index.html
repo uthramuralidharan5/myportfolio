@@ -5,41 +5,66 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile Management</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="static/admin/css/style.css" media="all">
+    <link rel="stylesheet" type="text/css" href="/static/admin/css/style.css" media="all">
+    <style>
+        /* Additional custom styles can be added here */
+        .profile-image {
+            max-width: 100px;
+            height: auto;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1 class="mt-4">Profile Management</h1>
 
         <!-- Form for adding a new profile -->
-        <form id="add-profile-form" onsubmit="submitProfile(event)">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" class="form-control" id="name" required>
+        <form id="add-profile-form" class="mt-4">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="role">Role</label>
+                        <input type="text" class="form-control" id="role" required>
+                    </div>
+                </div>
             </div>
-            <div class="form-group">
-                <label for="role">Role</label>
-                <input type="text" class="form-control" id="role" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" class="form-control" id="email" required>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" class="form-control" id="email" required>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="image">Image URL</label>
+                        <input type="text" class="form-control" id="image">
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="bio">Bio</label>
                 <textarea class="form-control" id="bio" rows="3" required></textarea>
             </div>
-            <div class="form-group">
-                <label for="image">Image URL</label>
-                <input type="text" class="form-control" id="image">
-            </div>
-            <div class="form-group">
-                <label for="linkedin">LinkedIn</label>
-                <input type="text" class="form-control" id="linkedin">
-            </div>
-            <div class="form-group">
-                <label for="twitter">Twitter</label>
-                <input type="text" class="form-control" id="twitter">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="linkedin">LinkedIn</label>
+                        <input type="text" class="form-control" id="linkedin">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-group">
+                        <label for="twitter">Twitter</label>
+                        <input type="text" class="form-control" id="twitter">
+                    </div>
+                </div>
             </div>
             <div class="form-group">
                 <label for="added-by">Added By</label>
@@ -64,7 +89,8 @@
             </tbody>
         </table>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="static/admin/js/script.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/static/admin/js/script.js"></script>
 </body>
 </html>

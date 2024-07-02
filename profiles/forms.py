@@ -1,7 +1,8 @@
 from django import forms
-from .models import UserProfile
+from .models import Profile
 
-class UserProfileForm(forms.ModelForm):
+class ProfileForm(forms.ModelForm):
     class Meta:
-        model = UserProfile
-        fields = ['bio', 'skills', 'contact_details']
+        model = Profile
+        fields = ['name', 'role', 'email', 'bio', 'image', 'linkedin', 'twitter', 'added_by']
+

@@ -1,0 +1,38 @@
+<!-- profiles/profile_list.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Profile List</title>
+</head>
+<body>
+    <h1>Profile List</h1>
+    <ul>
+        {% for profile in profiles %}
+        <li>
+            <strong>{{ profile.name }}</strong> ({{ profile.email }}) - {{ profile.role }}
+            <br>
+            {{ profile.bio }}
+            <br>
+            {% if profile.image %}
+                <img src="{{ profile.image }}" alt="{{ profile.name }}">
+            {% endif %}
+            <br>
+            LinkedIn: <a href="{{ profile.linkedin }}">{{ profile.linkedin }}</a>
+            <br>
+            Twitter: <a href="{{ profile.twitter }}">{{ profile.twitter }}</a>
+            <br>
+            Added By: {{ profile.added_by }}
+            <br>
+            <a href="{% url 'edit_profile' profile.id %}">Edit</a> |
+            <form action="{% url 'delete_profile' profile.id %}" method="post">
+                {% csrf_token %}
+                <button type="submit" onclick="return confirm('Are you sure you want to delete this profile?')">Delete</button>
+            </form>
+        </li>
+        <hr>
+        {% endfor %}
+    </ul>
+    <a href="{% url 'add_profile' %}">Add New Profile</a>
+</body>
+</html>
